@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Just One Question ❤️</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background: #ffe6f0;
+            margin-top: 100px;
+        }
+
+        h1 {
+            color: #ff3366;
+            padding: 0 20px;
+        }
+
+        .btn {
+            padding: 18px 35px;
+            font-size: 22px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            margin: 20px;
+            transition: all 0.3s ease;
+        }
+
+        #yesBtn {
+            background-color: #28a745;
+            color: white;
+        }
+
+        #noBtn {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        img {
+            width: 300px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<script>
+    let name = prompt("Enter your name 👀");
+
+    // 👉 CHANGE NAME HERE
+    let n = name.toLowerCase();
+
+if (n.includes("kashish")) {
+
+        document.body.innerHTML = `
+            <h1 id="question">Ready to be stuck with me forever? 😜</h1>
+            <button id="yesBtn" class="btn">Yes ❤️</button>
+            <button id="noBtn" class="btn">No 😆</button>
+        `;
+
+        let question = document.getElementById("question");
+        let yesBtn = document.getElementById("yesBtn");
+        let noBtn = document.getElementById("noBtn");
+
+        // 💖 13 QUESTIONS
+        let questions = [
+            "Ready to be stuck with me forever? 😜",
+            "Think again… I’m not that bad 😄",
+            "Life with me will be fun ❤️",
+            "I’ll always take care of you 💖",
+            "Still no? 🥺",
+            "I’ll keep asking you 😏",
+            "You’re important to me ❤️",
+            "Let’s make memories together 💫",
+            "You + Me = Perfect 😄",
+            "Don’t overthink it 😉",
+            "Almost there… say yes ❤️",
+            "Last chance 😆",
+            "Say yes already 💍"
+        ];
+
+        let step = 0;
+
+        let yesSize = 22;
+        let noSize = 22;
+
+        // 👉 NO CLICK
+        noBtn.addEventListener("click", () => {
+            if (step < 12) {
+                step++;
+
+                // Change question
+                question.innerText = questions[step];
+
+                // Increase YES size
+                yesSize += 6;
+                yesBtn.style.fontSize = yesSize + "px";
+
+                // Decrease NO size
+                noSize -= 2;
+                noBtn.style.fontSize = noSize + "px";
+
+            } else {
+                // Final step → hide NO
+                noBtn.style.display = "none";
+                question.innerText = "Okay okay… you have no choice now 😆❤️";
+            }
+        });
+
+        // 👉 YES CLICK
+        yesBtn.addEventListener("click", () => {
+            document.body.innerHTML = `
+                <h1>Yayyyy!!! ❤️😄<br>I knew that you will say Yes💍</h1>
+                <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
+            `;
+        });
+
+    } else {
+
+        document.body.innerHTML = `
+            <h1>This is not for you 😄</h1>
+            <img src="https://media.giphy.com/media/3o7TKMt1VVNkHV2PaE/giphy.gif">
+        `;
+    }
+</script>
+
+</body>
+</html>
